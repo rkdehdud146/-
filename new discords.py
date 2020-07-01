@@ -1,4 +1,6 @@
 import discord
+import os
+
 
 client = discord.Client()
 
@@ -12,7 +14,8 @@ async def on_ready():
     game =discord.Game("치이 아루엘")
     await client.change_presence(status=discord.Status.online, activity=game)
 
-
+    
+    
 @client.even
 async def on_message(massage):
     if message.content.startswith("치이야 안녕"):
@@ -34,5 +37,6 @@ async def on_message(massage):
     if message.content.startswith("치이야 개발자가 업데이드 언제 해줄까?"):
         await message.channel.send("죽기전엔 할 것 같음")
 
-
-client.run('NzI3ODc4MjY1MDk1NzE2ODY1.XvyP0Q.LcHA2PsKsfxA_qP_j1_0z8rx5Ww')
+        
+access_token = os.environ["BOT_TOKEN"]
+client.run(access_token)
